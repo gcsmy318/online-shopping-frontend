@@ -1,0 +1,9 @@
+rm -rf .git
+
+git init
+git remote add origin https://github.com/gcsmy318/online-shopping-frontend.git
+
+git add .
+git commit -m "Initial commit for frontend"
+git branch -M main
+git push -u origin main
