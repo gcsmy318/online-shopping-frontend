@@ -57,9 +57,18 @@ export default function CategoryPage({ products }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { id } = context.params;
-  const res = await fetch(`http://localhost:8080/api/products/${id}`);
+// ✅ ใช้ Static Props แทน Server Side Props
+export async function getStaticPaths() {
+  // กำหนดหมวดหมู่ที่ต้องการให้ Static Export
+  const categories = ["electronics", "fashion", "home", "sports"];
+  const paths = categories.map((id) => ({ params: { id } }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`http://localhost:8080/api/products/${params.id}`);
   const products = await res.json();
+
   return { props: { products } };
 }
