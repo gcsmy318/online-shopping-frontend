@@ -1,9 +1,5 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true, // ปิด image optimization สำหรับ static export
-  },
+  output: 'standalone', // ใช้ Standalone แทน Static Export
 };
 
 module.exports = nextConfig;
