@@ -24,7 +24,7 @@ export default function CartPage() {
     const orderData = { name, address, phone, cart, totalPrice };
 
     try {
-      const res = await fetch('http://localhost:8080/api/order', {
+      const res = await fetch('https://online-shopping-backend-production.up.railway.app/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
