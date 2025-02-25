@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export", // ✅ ใช้ output: export แทน next export
+  reactStrictMode: true,
   images: {
-    unoptimized: true, // ปิด image optimization สำหรับ static export
+    unoptimized: true, // ✅ ต้องใช้เมื่อ deploy แบบ static
   },
 };
 
