@@ -33,7 +33,7 @@ export default function CartPage() {
       if (res.ok) {
         alert('✅ สั่งซื้อสำเร็จ! ระบบจะพาคุณกลับไปที่หน้าหลัก');
         clearCart();  // ✅ ล้างตะกร้า
-        router.push('/');  // ✅ Redirect ไปหน้าแรก
+        router.push('https://gcsmy318.github.io/web/index.html');  // ✅ Redirect ไปหน้าแรก
       } else {
         alert('❌ ไม่สามารถสั่งซื้อได้!');
       }
@@ -48,12 +48,13 @@ export default function CartPage() {
   return (
     <div className="p-10">
       {/* ปุ่มย้อนกลับ */}
-          <button
-            className="mb-5 px-4 py-2 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700"
-            onClick={() => router.back()}
-          >
-            ⬅️ ย้อนกลับ
-          </button>
+      <button
+        className="mb-5 px-4 py-2 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700"
+        onClick={() => router.back()}
+      >
+        ⬅️ ย้อนกลับ
+      </button>
+
       <h1 className="text-3xl font-bold mb-5">🛒 ตะกร้าสินค้าของคุณ</h1>
 
       {cart.length === 0 ? (
@@ -61,13 +62,18 @@ export default function CartPage() {
       ) : (
         cart.map((item) => (
           <div key={item.id} className="border rounded-lg shadow-lg p-4 mb-4 flex items-center justify-between">
+            {/* ✅ แสดงรูปภาพสินค้า */}
+            <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded" />
+
             <h2 className="text-xl font-semibold">{item.name}</h2>
             <p className="text-lg font-bold text-blue-500">{item.price}฿</p>
+
             <div className="flex items-center gap-2">
               <button className="bg-gray-300 px-2 py-1 rounded" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
               <span>{item.quantity}</span>
               <button className="bg-gray-300 px-2 py-1 rounded" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
             </div>
+
             <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700" onClick={() => removeFromCart(item.id)}>🗑 ลบออก</button>
           </div>
         ))
