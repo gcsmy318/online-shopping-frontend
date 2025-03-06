@@ -31,14 +31,30 @@ export default function CategoryPage({ products }) {
 
   return (
     <div className="p-10">
+      {/* ปุ่มย้อนกลับ */}
+      <button
+        className="mb-3 px-4 py-2  text-white rounded bg-blue-500  hover:bg-blue-700 "
+        onClick={() => router.back()}
+      >
+        ⬅️ ย้อนกลับ
+      </button>
+
+      {/* ปุ่มไปที่ตะกร้าสินค้า */}
+      <button
+        className="mb-5 ml-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+        onClick={() => router.push('/cart')}
+      >
+        🛒 ไปที่ตะกร้า
+      </button>
+
       <h1 className="text-3xl font-bold mb-5">หมวดหมู่: {id}</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product.id} className="border rounded-lg shadow-lg p-4">
-            <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-3 rounded" />
+            <img src={product.image} alt={product.name} className="w-full h-100 object-cover mb-3 rounded" />
             <h2 className="text-xl font-semibold">{product.name}</h2>
             <p className="text-gray-500">{product.info}</p>
-            <p className="text-lg font-bold text-blue-500">${product.price}</p>
+            <p className="text-lg font-bold text-blue-500">{product.price} ฿</p>
             <div className="mt-2 flex items-center gap-2">
               <button className="bg-gray-300 px-2 py-1 rounded" onClick={() => decreaseQty(product.id)}>-</button>
               <span>{quantities[product.id] || 0}</span>
@@ -59,15 +75,15 @@ export default function CategoryPage({ products }) {
 
 // ✅ ใช้ Static Props แทน Server Side Props
 export async function getStaticPaths() {
-  // กำหนดหมวดหมู่ที่ต้องการให้ Static Export
-  const categories = ["electronics", "fashion", "home", "sports"];
+  const categories = ["ขนมเสริมพัฒนาการสำหรับเด็ก", "โจ๊กข้าวกล้องงอก", "ซุปธัญพืช", "ส่วนผสมและเครื่องปรุงประกอบอาหาร",
+    "HEALTHY SNACKS", "INSTANT PORRIDGE", "SOUP", "COOKING INGREDIENTS AND FOOD TOPPINGS"];
   const paths = categories.map((id) => ({ params: { id } }));
 
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const API_URL = process.env.API_URL || "https://online-shopping-backend-production.up.railway.app"; // ใช้ API Production หรือ Local
+  const API_URL = process.env.API_URL || "https://online-shopping-backend-production.up.railway.app";
   const res = await fetch(`${API_URL}/api/products/${params.id}`);
   const products = await res.json();
 
