@@ -49,7 +49,7 @@ export default function CartPage() {
     <div className="p-10">
       {/* ปุ่มย้อนกลับ */}
       <button
-        className="mb-5 px-4 py-2 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700"
+        className="mb-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
         onClick={() => router.back()}
       >
         ⬅️ ย้อนกลับ
@@ -62,8 +62,12 @@ export default function CartPage() {
       ) : (
         cart.map((item) => (
           <div key={item.id} className="border rounded-lg shadow-lg p-4 mb-4 flex items-center justify-between">
-            {/* ✅ แสดงรูปภาพสินค้า */}
-            <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded" />
+            {/* ✅ แสดงรูปภาพสินค้า รองรับ URL เต็ม */}
+            <img
+              src={item.image.startsWith('http') ? item.image : `https://online-shopping-frontend-beta.vercel.app${item.image}`}
+              alt={item.name}
+              className="w-16 h-16 object-cover rounded"
+            />
 
             <h2 className="text-xl font-semibold">{item.name}</h2>
             <p className="text-lg font-bold text-blue-500">{item.price}฿</p>
