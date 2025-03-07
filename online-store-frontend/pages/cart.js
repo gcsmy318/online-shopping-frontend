@@ -46,46 +46,59 @@ export default function CartPage() {
   };
 
   return (
-    <div className="p-10">
+    <div className="p-10 max-w-lg mx-auto bg-gray-100 rounded-lg shadow-lg">
       {/* ปุ่มย้อนกลับ */}
       <button
-        className="mb-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        className="mb-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center"
         onClick={() => router.back()}
       >
         ⬅️ ย้อนกลับ
       </button>
 
-      <h1 className="text-3xl font-bold mb-5">🛒 ตะกร้าสินค้าของคุณ</h1>
+      <h1 className="text-3xl font-bold mb-5 text-center">🛒 ตะกร้าสินค้าของคุณ</h1>
 
       {cart.length === 0 ? (
-        <p className="text-red-500">❌ ตะกร้าสินค้าว่างเปล่า</p>
+        <p className="text-red-500 text-lg text-center">❌ ตะกร้าสินค้าว่างเปล่า</p>
       ) : (
-        cart.map((item) => (
-          <div key={item.id} className="border rounded-lg shadow-lg p-4 mb-4 flex items-center justify-between">
-            {/* ✅ แสดงรูปภาพสินค้า รองรับ URL เต็ม */}
-            <img
-              src={item.image.startsWith('http') ? item.image : `https://online-shopping-frontend-beta.vercel.app${item.image}`}
-              alt={item.name}
-              className="w-16 h-16 object-cover rounded"
-            />
+        <div className="space-y-4">
+          {cart.map((item) => (
+            <div key={item.id} className="border rounded-lg shadow p-4 flex items-center gap-4 bg-white">
+              {/* ✅ รูปภาพสินค้า */}
+              <img
+                src={item.image.startsWith('http') ? item.image : `https://online-shopping-frontend-beta.vercel.app${item.image}`}
+                alt={item.name}
+                className="w-24 h-24 object-cover rounded"
+              />
 
-            <h2 className="text-xl font-semibold">{item.name}</h2>
-            <p className="text-lg font-bold text-blue-500">{item.price}฿</p>
+              {/* ✅ รายละเอียดสินค้า */}
+              <div className="flex-grow">
+                <h2 className="text-lg font-semibold">{item.name}</h2>
+                <p className="text-lg font-bold text-blue-500">{item.price}฿</p>
 
-            <div className="flex items-center gap-2">
-              <button className="bg-gray-300 px-2 py-1 rounded" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-              <span>{item.quantity}</span>
-              <button className="bg-gray-300 px-2 py-1 rounded" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                {/* ✅ ปุ่มเพิ่มลดจำนวน */}
+                <div className="flex items-center gap-2 mt-2">
+                  <button className="bg-gray-300 px-3 py-1 rounded text-lg" onClick={() => updateQuantity(item.id, item.quantity - 1)}>➖</button>
+                  <span className="text-lg">{item.quantity}</span>
+                  <button className="bg-gray-300 px-3 py-1 rounded text-lg" onClick={() => updateQuantity(item.id, item.quantity + 1)}>➕</button>
+                </div>
+              </div>
+
+              {/* ✅ ปุ่มลบสินค้า */}
+              <button className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-700 flex items-center" onClick={() => removeFromCart(item.id)}>
+                🗑 ลบ
+              </button>
             </div>
-
-            <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700" onClick={() => removeFromCart(item.id)}>🗑 ลบออก</button>
-          </div>
-        ))
+          ))}
+        </div>
       )}
 
-      <h2 className="text-2xl font-bold text-green-500">💰 ราคารวมทั้งหมด: {totalPrice}฿</h2>
+      {/* ✅ แสดงราคารวมทั้งหมด */}
+      {cart.length > 0 && (
+        <h2 className="text-2xl font-bold text-green-500 mt-5 text-center">💰 ราคารวมทั้งหมด: {totalPrice}฿</h2>
+      )}
 
-      <div className="mt-5">
+      {/* ✅ ฟอร์มสำหรับกรอกข้อมูลลูกค้า */}
+      <div className="mt-5 bg-white p-5 rounded-lg shadow-lg">
         <label className="block text-lg font-bold">👤 ชื่อ:</label>
         <input
           type="text"
@@ -115,8 +128,9 @@ export default function CartPage() {
 
         {error && <p className="text-red-500 mt-3">{error}</p>}
 
+        {/* ✅ ปุ่มสั่งซื้อสินค้า */}
         <button
-          className="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 w-full"
+          className="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 w-full text-lg"
           onClick={handleOrder}
           disabled={isOrdering || cart.length === 0}
         >
