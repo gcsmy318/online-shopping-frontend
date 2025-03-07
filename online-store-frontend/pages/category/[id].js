@@ -84,7 +84,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const API_URL = process.env.API_URL || "https://online-shopping-backend-production.up.railway.app";
-  
+
  // const API_URL = process.env.API_URL || "http://localhost:8080";
   const res = await fetch(`${API_URL}/api/products/${params.id}`);
   const products = await res.json();
