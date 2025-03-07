@@ -26,7 +26,6 @@ export default function CartPage() {
     try {
       const res = await fetch('https://online-shopping-backend-production.up.railway.app/api/order', {
       //  const res = await fetch('http://localhost:8080/api/order', {
-
         method: 'POST',
            }
         headers: { 'Content-Type': 'application/json' },
