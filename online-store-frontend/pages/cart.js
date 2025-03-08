@@ -15,7 +15,7 @@ export default function CartPage() {
 
   const handleOrder = async () => {
     if (!name.trim() || !address.trim() || !phone.trim()) {
-      setError("❌ กรุณากรอกข้อมูลให้ครบทุกช่อง");
+      setError("❌ กรุณากรอกข้อมูลให้ครบทุกช่อง (Please fill in all fields.) ");
       return;
     }
     setError('');
@@ -31,15 +31,15 @@ export default function CartPage() {
       });
 
       if (res.ok) {
-        alert('✅ สั่งซื้อสำเร็จ! ระบบจะพาคุณกลับไปที่หน้าหลัก');
+        alert('✅ สั่งซื้อสำเร็จ! ระบบจะพาคุณกลับไปที่หน้าหลัก (Order completed! You will be taken back to the home page.)');
         clearCart();  // ✅ ล้างตะกร้า
         router.push('https://gcsmy318.github.io/web/index.html');  // ✅ Redirect ไปหน้าแรก
       } else {
-        alert('❌ ไม่สามารถสั่งซื้อได้!');
+        alert('❌ ไม่สามารถสั่งซื้อได้ (Unable to order) !');
       }
     } catch (error) {
       console.error(error);
-      alert('❌ เกิดข้อผิดพลาดในการสั่งสินค้า!');
+      alert('❌ เกิดข้อผิดพลาดในการสั่งสินค้า (There was an error while ordering.)!');
     } finally {
       setIsOrdering(false);
     }
@@ -55,10 +55,10 @@ export default function CartPage() {
         ⬅️ ย้อนกลับ
       </button>
 
-      <h1 className="text-3xl font-bold mb-5 text-center">🛒 ตะกร้าสินค้าของคุณ</h1>
+      <h1 className="text-3xl font-bold mb-5 text-center">🛒 ตะกร้าสินค้าของคุณ (Your shopping cart.) </h1>
 
       {cart.length === 0 ? (
-        <p className="text-red-500 text-lg text-center">❌ ตะกร้าสินค้าว่างเปล่า</p>
+        <p className="text-red-500 text-lg text-center">❌ ตะกร้าสินค้าว่างเปล่า (The shopping cart is empty.)</p>
       ) : (
         <div className="space-y-4">
           {cart.map((item) => (
@@ -94,12 +94,12 @@ export default function CartPage() {
 
       {/* ✅ แสดงราคารวมทั้งหมด */}
       {cart.length > 0 && (
-        <h2 className="text-2xl font-bold text-green-500 mt-5 text-center">💰 ราคารวมทั้งหมด: {totalPrice}฿</h2>
+        <h2 className="text-2xl font-bold text-green-500 mt-5 text-center">💰 ราคารวมทั้งหมด (Total price): {totalPrice}฿</h2>
       )}
 
       {/* ✅ ฟอร์มสำหรับกรอกข้อมูลลูกค้า */}
       <div className="mt-5 bg-white p-5 rounded-lg shadow-lg">
-        <label className="block text-lg font-bold">👤 ชื่อ:</label>
+        <label className="block text-lg font-bold">👤 ชื่อ (Name) :</label>
         <input
           type="text"
           value={name}
@@ -108,7 +108,7 @@ export default function CartPage() {
           placeholder="กรอกชื่อของคุณ..."
         />
 
-        <label className="block text-lg font-bold mt-3">📍 ที่อยู่:</label>
+        <label className="block text-lg font-bold mt-3">📍 ที่อยู่ (Address) :</label>
         <textarea
           value={address}
           onChange={(e) => setAddress(e.target.value)}
@@ -117,7 +117,7 @@ export default function CartPage() {
           rows="3"
         />
 
-        <label className="block text-lg font-bold mt-3">📞 เบอร์โทร:</label>
+        <label className="block text-lg font-bold mt-3">📞 เบอร์โทร (Telephone):</label>
         <input
           type="tel"
           value={phone}
@@ -134,7 +134,7 @@ export default function CartPage() {
           onClick={handleOrder}
           disabled={isOrdering || cart.length === 0}
         >
-          {isOrdering ? "⏳ กำลังสั่งซื้อ..." : "🛍 สั่งซื้อสินค้า"}
+          {isOrdering ? "⏳ กำลังสั่งซื้อ(Ordering)..." : "🛍 สั่งซื้อสินค้า(Order)"}
         </button>
       </div>
     </div>

@@ -25,7 +25,7 @@ export default function CategoryPage({ products }) {
       addToCart(product, qty);
       alert(`✅ เพิ่ม ${qty} ชิ้นของ ${product.name} ลงในตะกร้า!`);
     } else {
-      alert("❌ กรุณาเลือกจำนวนสินค้าอย่างน้อย 1 ชิ้น");
+      alert("❌ กรุณาเลือกจำนวนสินค้าอย่างน้อย 1 ชิ้น (Please select at least 1 item.) ");
     }
   };
 
@@ -36,7 +36,7 @@ export default function CategoryPage({ products }) {
         className="mb-3 px-4 py-2  text-white rounded bg-blue-500  hover:bg-blue-700 "
         onClick={() => router.back()}
       >
-        ⬅️ ย้อนกลับ
+        ⬅️ ย้อนกลับ (back)
       </button>
 
       {/* ปุ่มไปที่ตะกร้าสินค้า */}
@@ -44,7 +44,7 @@ export default function CategoryPage({ products }) {
         className="mb-5 ml-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
         onClick={() => router.push('/cart')}
       >
-        🛒 ไปที่ตะกร้า
+        🛒 ไปที่ตะกร้า (cart)
       </button>
 
       <h1 className="text-3xl font-bold mb-5">หมวดหมู่: {id}</h1>
@@ -64,7 +64,7 @@ export default function CategoryPage({ products }) {
               className="mt-3 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
               onClick={() => handleAddToCart(product)}
             >
-              🛒 เพิ่มลงตะกร้า
+              🛒 เพิ่มลงตะกร้า (Add to cart)
             </button>
           </div>
         ))}
