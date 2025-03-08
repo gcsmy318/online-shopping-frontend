@@ -52,13 +52,13 @@ export default function CartPage() {
         className="mb-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center"
         onClick={() => router.back()}
       >
-        ⬅️ ย้อนกลับ
+        ⬅️ ย้อนกลับ (ฺฺBack)
       </button>
 
-      <h1 className="text-3xl font-bold mb-5 text-center">🛒 ตะกร้าสินค้าของคุณ (Your shopping cart.) </h1>
+      <h2 className="text-3xl font-bold mb-5 text-center">🛒 ตะกร้าสินค้าของคุณ (Your cart.) </h2>
 
       {cart.length === 0 ? (
-        <p className="text-red-500 text-lg text-center">❌ ตะกร้าสินค้าว่างเปล่า (The shopping cart is empty.)</p>
+        <p className="text-red-500 text-lg text-center">❌ ตะกร้าสินค้าว่าง (Cart is empty.)</p>
       ) : (
         <div className="space-y-4">
           {cart.map((item) => (

@@ -44,7 +44,7 @@ export default function CategoryPage({ products }) {
         className="mb-5 ml-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
         onClick={() => router.push('/cart')}
       >
-        🛒 ไปที่ตะกร้า (cart)
+        🛒 ตะกร้า (cart)
       </button>
 
       <h1 className="text-3xl font-bold mb-5">หมวดหมู่: {id}</h1>
