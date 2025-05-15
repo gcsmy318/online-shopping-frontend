@@ -33,7 +33,7 @@ export default function CartPage() {
       if (res.ok) {
         alert('✅ สั่งซื้อสำเร็จ! ระบบจะพาคุณกลับไปที่หน้าหลัก (Order completed! You will be taken back to the home page.)');
         clearCart();  // ✅ ล้างตะกร้า
-        router.push('https://gcsmy318.github.io/web/index.html');  // ✅ Redirect ไปหน้าแรก
+        router.push('https://organeh.com');  // ✅ Redirect ไปหน้าแรก
       } else {
         alert('❌ ไม่สามารถสั่งซื้อได้ (Unable to order) !');
       }

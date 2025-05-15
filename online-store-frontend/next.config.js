@@ -1,16 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // ✅ ใช้ output: export แทน next export
-  reactStrictMode: true,
+  output: "export",       // บอก next ว่า export เป็น static site
+  reactStrictMode: true,  // เปิด Strict Mode ของ React
+  trailingSlash: true,    // ให้ URL ลงท้ายด้วย /
+  basePath: '/shop',      // ตั้ง path ย่อยเป็น /shop
   images: {
-    unoptimized: true, // ✅ ต้องใช้เมื่อ deploy แบบ static
+    unoptimized: true,    // ปิดการ optimize รูป สำหรับ static export
   },
-};
-module.exports = {
-  i18n: {
-    locales: ["en", "th"],
-    defaultLocale: "th",
-  },
-};
+}
 
 module.exports = nextConfig;
