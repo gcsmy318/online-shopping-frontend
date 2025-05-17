@@ -65,7 +65,7 @@ export default function CartPage() {
             <div key={item.id} className="border rounded-lg shadow p-4 flex items-center gap-4 bg-white">
               {/* ✅ รูปภาพสินค้า */}
               <img
-                src={item.image.startsWith('http') ? item.image : `https://online-shopping-frontend-beta.vercel.app${item.image}`}
+                src={item.image.startsWith('http') ? item.image : `https://organeh.com/shop${item.image}`}
                 alt={item.name}
                 className="w-24 h-24 object-cover rounded"
               />
