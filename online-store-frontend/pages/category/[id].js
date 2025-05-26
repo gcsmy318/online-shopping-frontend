@@ -86,11 +86,29 @@ export async function getStaticPaths() {
 
   return { paths, fallback: false };
 }
-
+/*
 export async function getStaticProps({ params }) {
-  const API_URL = process.env.API_URL || "https://online-shopping-backend-production.up.railway.app";
+  const API_URL = process.env.API_URL || "${process.env.REACT_APP_API_URL}";
   const res = await fetch(`${API_URL}/api/products/${params.id}`);
   const products = await res.json();
 
   return { props: { products } };
+}
+*/
+
+export async function getStaticProps({ params }) {
+  const API_URL = process.env.API_URL || `${process.env.NEXT_PUBLIC_API_URL}`;
+
+  try {
+    const res = await fetch(`${API_URL}/api/products/${encodeURIComponent(params.id)}`);
+    const data = await res.json();
+
+    // เช็กว่า data เป็น array หรือไม่
+    const products = Array.isArray(data) ? data : [];
+
+    return { props: { products } };
+  } catch (error) {
+    console.error("❌ Error fetching products:", error);
+    return { props: { products: [] } }; // fallback เผื่อ API ล่ม
+  }
 }

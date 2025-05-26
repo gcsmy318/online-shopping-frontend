@@ -5,10 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bfda885-303f-433d-b8d4-cea03083cf8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/online-store-frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/online-store-frontend/api url" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/online-store-frontend/pages/cart.BAK" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/online-store-frontend/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/online-store-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/404/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/404/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/COOKING INGREDIENTS AND FOOD TOPPINGS.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/HEALTHY SNACKS.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/INSTANT PORRIDGE.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/SOUP.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/ขนมเสริมพัฒนาการสำหรับเด็ก.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/ซุปธัญพืช.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/ส่วนผสมและเครื่องปรุงประกอบอาหาร.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/data/uJ7HK7_hUHTHZ1ePrKIMT/category/โจ๊กข้าวกล้องงอก.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/static/chunks/main-8d6658da67fedd8f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/static/chunks/pages/cart-00bc8395ccfab448.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/static/chunks/webpack-6f702f7ebcf9a32b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/static/uJ7HK7_hUHTHZ1ePrKIMT/_buildManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/_next/static/uJ7HK7_hUHTHZ1ePrKIMT/_ssgManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/cart/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/cart/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/COOKING INGREDIENTS AND FOOD TOPPINGS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/COOKING INGREDIENTS AND FOOD TOPPINGS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/HEALTHY SNACKS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/HEALTHY SNACKS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/INSTANT PORRIDGE/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/INSTANT PORRIDGE/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/SOUP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/SOUP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/ขนมเสริมพัฒนาการสำหรับเด็ก/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/ขนมเสริมพัฒนาการสำหรับเด็ก/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/ซุปธัญพืช/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/ซุปธัญพืช/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/ส่วนผสมและเครื่องปรุงประกอบอาหาร/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/ส่วนผสมและเครื่องปรุงประกอบอาหาร/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/category/โจ๊กข้าวกล้องงอก/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/category/โจ๊กข้าวกล้องงอก/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/en/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/en/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/out/th/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/out/th/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online-store-frontend/pages/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/pages/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-store-frontend/pages/category/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/online-store-frontend/pages/category/[id].js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +60,15 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/webdev/shopping/frontend"
+    "last_opened_file_path": "F:/webdev/shopping/frontend/online-store-frontend/pages"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\webdev\shopping\frontend\online-store-frontend\pages" />
+      <recent name="F:\webdev\shopping\frontend\online-store-frontend" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
