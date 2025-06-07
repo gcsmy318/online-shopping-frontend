@@ -130,7 +130,7 @@ export default function CartPage() {
           {cart.map((item) => (
             <div key={item.id} className="border rounded-lg shadow p-4 flex items-center gap-4 bg-white">
               <Image
-                src={item.image.startsWith('http') ? item.image : `https://organeh.com/shop${item.image}`}
+                src={item.image.startsWith('https') ? item.image : `https://organeh.com/shop${item.image}`}
                 alt={item.name}
                 width={96} // ✅ ความกว้าง (px)
                 height={96} // ✅ ความสูง (px)
