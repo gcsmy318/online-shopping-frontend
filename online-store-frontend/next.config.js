@@ -5,8 +5,9 @@ const nextConfig = {
   trailingSlash: true,    // ให้ URL ลงท้ายด้วย /
   basePath: '/shop',      // ตั้ง path ย่อยเป็น /shop
   images: {
+    domains: ['organeh.com'],
     unoptimized: true,    // ปิดการ optimize รูป สำหรับ static export
-  },
+  }
 }
 
 module.exports = nextConfig;

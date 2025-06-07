@@ -52,11 +52,18 @@ export default function CategoryPage({ products }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
                 <div key={product.id} className="border rounded-lg shadow-lg p-4">
+
+
                    <img
-                     src={`${router.basePath}/${product.image}`}
+                     src={
+                       product.image.startsWith('http')
+                         ? product.image // 👉 เป็นลิงก์เต็มอยู่แล้ว
+                         : `${router.basePath}${product.image}` // 👉 เป็น path ภายในโปรเจกต์
+                     }
                      alt={product.name}
                      className="w-full h-100 object-cover mb-3 rounded"
                    />
+
             <h2 className="text-xl font-semibold">{product.name}</h2>
             <p className="text-gray-500">{product.info}</p>
             <p className="text-lg font-bold text-blue-500">{product.price} ฿</p>
@@ -80,8 +87,8 @@ export default function CategoryPage({ products }) {
 
 // ✅ ใช้ Static Props แทน Server Side Props
 export async function getStaticPaths() {
-  const categories = ["ขนมเสริมพัฒนาการสำหรับเด็ก", "โจ๊กข้าวกล้องงอก", "ซุปธัญพืช", "ส่วนผสมและเครื่องปรุงประกอบอาหาร",
-    "HEALTHY SNACKS", "INSTANT PORRIDGE", "SOUP", "COOKING INGREDIENTS AND FOOD TOPPINGS"];
+  const categories = ["ขนมเสริมพัฒนาการสำหรับเด็ก", "โจ๊กข้าวกล้องงอก", "ซุปธัญพืช", "ส่วนผสมและเครื่องปรุงประกอบอาหาร","โปรโมชั่น",
+    "HEALTHY SNACKS", "INSTANT PORRIDGE", "SOUP", "COOKING INGREDIENTS AND FOOD TOPPINGS","PROMOTION"];
   const paths = categories.map((id) => ({ params: { id } }));
 
   return { paths, fallback: false };
@@ -97,10 +104,9 @@ export async function getStaticProps({ params }) {
 */
 
 export async function getStaticProps({ params }) {
-  const API_URL = process.env.API_URL || `${process.env.NEXT_PUBLIC_API_URL}`;
 
   try {
-    const res = await fetch(`${API_URL}/api/products/${encodeURIComponent(params.id)}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${encodeURIComponent(params.id)}`);
     const data = await res.json();
 
     // เช็กว่า data เป็น array หรือไม่
