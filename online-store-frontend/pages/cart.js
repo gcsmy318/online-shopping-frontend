@@ -11,6 +11,8 @@ export default function CartPage() {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
+const [isChecked, setIsChecked] = useState(false);
+const [showTerms, setShowTerms] = useState(false); // ✅ สำหรับ popup
 
   const [showModal, setShowModal] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -169,14 +171,98 @@ export default function CartPage() {
 
         {error && <p className="text-red-500 mt-3">{error}</p>}
 
-        <button
-          className="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 w-full text-lg"
-          onClick={handleOrder}
-          disabled={cart.length === 0}
-        >
-          🛍 สั่งซื้อสินค้า
-        </button>
+<div className="mt-4">
+  <label className="flex items-center space-x-2">
+    <input
+      type="checkbox"
+      checked={isChecked}
+      onChange={(e) => setIsChecked(e.target.checked)}
+      className="w-5 h-5"
+    />
+    <span className="text-sm text-gray-700">
+      ฉันยอมรับ{' '}
+      <button
+        type="button"
+        className="text-blue-500 underline"
+        onClick={() => setShowTerms(true)}
+      >
+        เงื่อนไขและนโยบายการชำระเงิน
+      </button>
+    </span>
+  </label>
+</div>
+     <button
+       className={`mt-4 text-white px-6 py-2 rounded w-full text-lg ${
+         isChecked ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+       }`}
+       onClick={handleOrder}
+       disabled={cart.length === 0 || !isChecked}
+     >
+       🛍 สั่งซื้อสินค้า
+     </button>
       </div>
+
+
+
+
+
+{showTerms && (
+  <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg max-w-xl max-h-[80vh] overflow-y-auto">
+
+
+    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg my-10">
+          <h1 className="text-3xl font-bold mb-4 text-center">📝 นโยบายการชำระเงินและการสั่งซื้อ</h1>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">📌 1. เงื่อนไขการสั่งซื้อ</h2>
+            <p className="text-gray-700">
+              ลูกค้าจะต้องกรอกข้อมูลให้ครบถ้วนและถูกต้องก่อนทำการสั่งซื้อสินค้า หากข้อมูลไม่ครบถ้วน อาจทำให้ไม่สามารถจัดส่งสินค้าได้อย่างถูกต้อง
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">💳 2. วิธีการชำระเงิน</h2>
+            <p className="text-gray-700">
+              ระบบจะสร้าง QR Code สำหรับชำระเงินผ่าน Omise (พร้อมเพย์) ซึ่งลูกค้าต้องทำรายการภายใน 5 นาทีหลังจากได้รับ QR Code หากไม่ชำระภายในเวลาที่กำหนด จะต้องสั่งซื้อใหม่อีกครั้ง
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">📤 3. การยืนยันคำสั่งซื้อ</h2>
+            <p className="text-gray-700">
+              หลังจากชำระเงินสำเร็จ ระบบจะทำการยืนยันคำสั่งซื้อโดยอัตโนมัติ และจะมีอีเมลยืนยันถูกส่งไปยังอีเมลของผู้ขาย
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">🔁 4. นโยบายการคืนเงิน</h2>
+            <p className="text-gray-700">
+              การคืนเงินจะพิจารณาเป็นกรณีไป โดยเฉพาะกรณีที่สินค้าไม่ตรงตามคำอธิบาย หรือเกิดข้อผิดพลาดจากทางร้าน กรุณาติดต่อภายใน 3 วันหลังได้รับสินค้า
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">📞 5. ติดต่อสอบถาม</h2>
+            <p className="text-gray-700">
+              หากมีข้อสงสัยหรือต้องการสอบถามเกี่ยวกับคำสั่งซื้อ กรุณาติดต่อทีมงานผ่านทางอีเมล <span className="text-blue-600">ilamoonshopping@gmail.com</span> หรือทาง Facebook Page ของเรา
+            </p>
+          </section>
+
+          <p className="text-center text-gray-500 mt-10 text-sm">ปรับปรุงล่าสุด: 7 มิถุนายน 2025</p>
+        </div>
+
+      <button
+        onClick={() => setShowTerms(false)}
+        className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 block mx-auto"
+      >
+        ปิด
+      </button>
+    </div>
+  </div>
+)}
+
+
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
